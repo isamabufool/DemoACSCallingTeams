@@ -3,6 +3,7 @@ import React, { useState }  from 'react';
 import { Stack, PrimaryButton, Icon, Image, IImageStyles, TextField } from '@fluentui/react';
 import { VideoCameraEmphasisIcon } from '@fluentui/react-icons-northstar';
 import heroSVG from '../assets/hero.svg';
+import basicCreditCardSVG from '../assets/basicCreditCard.svg';
 import { v1 as createGUID } from 'uuid';
 import {
   imgStyle,
@@ -36,6 +37,7 @@ export const HomeScreen = (props: HomeScreenProps): JSX.Element => {
   const groupId: string = createGUID();
   const iconName = 'SkypeCircleCheck';
   const imageProps = { src: heroSVG.toString() };
+  const imagePropsCard = { src: basicCreditCardSVG.toString() };
   const headerTitle = 'Banking communication service';
   const startCallButtonText = 'Start a call';
   const joinTeamsCallText = 'Join a Teams Meeting';
@@ -52,32 +54,8 @@ export const HomeScreen = (props: HomeScreenProps): JSX.Element => {
             
               <div className={headerStyle}>{headerTitle}</div>
             
-                <Stack tokens={nestedStackTokens}>
-                    <div className={Itemboxhid}> 
-                  <ul className={listStyle}>
-                <li className={listItemStyle}>
-                    <Icon className={iconStyle} iconName={iconName} /> {listItems[0]}
-                </li>
-                <li className={listItemStyle}>
-                    <Icon className={iconStyle} iconName={iconName} /> {listItems[1]}
-                </li>
-                <li className={listItemStyle}>
-                    <Icon className={iconStyle} iconName={iconName} /> {listItems[2]}
-                </li>
-                <li className={listItemStyle}>
-                    <Icon className={iconStyle} iconName={iconName} /> {listItems[3]}{' '}
-                    <a href="https://docs.microsoft.com/en-us/azure/communication-services/samples/calling-hero-sample?pivots=platform-web">sample</a>
-                </li>
-                        </ul>
-                        </div>
-        </Stack>
-              <Stack.Item >
-          <PrimaryButton className={buttonStyle} onClick={() => props.startCallHandler(groupId)}>
-            <VideoCameraEmphasisIcon className={videoCameraIconStyle} size="medium" />
-            {startCallButtonText}
-          </PrimaryButton>
-          <TextField disabled={true} value={groupId} />
-        </Stack.Item>
+           
+   
         <Stack.Item>
           <PrimaryButton disabled={meetingUrl === ''} onClick={() => props.joinTeamsMeeting(meetingUrl)}>
             <VideoCameraEmphasisIcon className={videoCameraIconStyle} size="medium" />
@@ -91,7 +69,14 @@ export const HomeScreen = (props: HomeScreenProps): JSX.Element => {
         className={imgStyle}
         styles={imageStyleProps}
         {...imageProps}
-      />
+            />
+
+            <Image
+                alt="Welcome to the Azure Communication Services Calling sample app"
+                className={imgStyle}
+                styles={imageStyleProps}
+                {...imagePropsCard}
+            />
     </Stack>
   );
 };

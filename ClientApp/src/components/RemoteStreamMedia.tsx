@@ -34,6 +34,18 @@ export const RemoteStreamMedia = (props: RemoteStreamMediaProps): JSX.Element =>
     }
   };
 
+    const imagePropsCard = {
+        src: staticMediaSVG.toString(),
+        imageFit: ImageFit.contain,
+        styles: {
+            root: {
+                width: '100%',
+                height: '100%',
+                display: activeStreamBeingRendered ? 'none' : 'block'
+            }
+        }
+    };
+
   const loadingStyle = {
     height: '100%',
     display: 'flex',
